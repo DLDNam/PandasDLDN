@@ -1,0 +1,64 @@
+# Đọc dữ liệu vào file df:
+     my_df = read_csv("%.csv")
+
+# Ghi dữ liệu vào file df:
+	my_df.to_csv("%.csv")
+
+# Xem thông tin trên df:
+	my_df.info()
+
+#Lay theo cot hoac nhieu cot:
+	my_df['%']
+
+# Lay theo dong hoac nhieu dong:
+	
+	*lay 5 dong dau tien
+	my_df.head(5)
+
+	*lay 8 dong cuoi:
+	my_df.tail(8)
+	
+	*lay tu dong 5 den 10:
+	my_df[5:10]
+# Bạn có thể sắp xếp giá trị với sort_values
+
+	my_df.sort_values('Age')
+
+# xóa cột TXT
+	del my_df['TXT']
+
+# Lay theo dieu kien:
+	
+	*lay nhung nguoi gioi tinh Nam:
+	my_df.[my_df.sex == 'M']
+	*lay nhieu dieu kien
+	my_new = my_df[(my_df['Diem Su']>8) & (my_df['Diem Dia'] > 8) & (my_df['Diem Sinh']>8)]
+	
+#Them cot voi dieu voi dieu kien toan, van > 8 
+	my_df['pass'] = np.where((my_df['Diem Toan'] > 9) & (my_df['Diem Van']>8),'pass','tach')
+
+# Xoa cot:
+	*my_df.Drop(columns=['pass'])
+
+	*xoa và lưu lại:(them 'inplace=True')
+	my_df.drop(columns=['STT'],inplace=True)
+
+#Xoa hang 10, 29:
+	my_df=my_df.drop(index = [10,29])
+
+# Xóa toàn bộ hàng trắng trong dãy
+	my_df = my_df.dropna(how ='all')
+
+# Tìm kiếm và in ra các dòng có thông tin trong cột Product có 20in Monitor:
+	my_df[my_df['Product'] == '20in Monitor' ]
+
+#Xóa cột thứ 1, 2, 4 theo thứ tự 
+	my_df.drop(my_df.columns[[0,1,3]], axis=1, inplace=True)
+
+# cắt string in pandas:
+	my_df['month'].str.slice(0,2,1)	  ex: 07/12/2017 => 07
+	
+	start: 0
+	stop: 2
+	step: 1
+
